@@ -4,7 +4,7 @@ All notable changes to this project are documented here.
 
 ---
 
-## [1.5.0] — 2026-03-18
+## [2.1.0] — 2026-03-18
 
 ### Added
 - 5 new pattern categories: reasoning chain artifacts, sycophantic tone, acknowledgment loops, confidence calibration phrases, excessive structure
@@ -12,12 +12,29 @@ All notable changes to this project are documented here.
 - New "When to rewrite from scratch vs. patch" threshold — advises full rewrites when AI density is too high for patching
 - 5 rewrite principles in tone calibration section (vary length, be concrete, have a voice, cut neutrality, earn emphasis)
 - New "Meta Patterns" group in README pattern table
-- Expanded credits: brandonwise/humanizer (statistical analysis research), OpenClaw humanizer ecosystem (community patterns)
+- Expanded credits: OpenClaw humanizer ecosystem (community patterns)
 
 ### Changed
 - Pattern count: 23 → 30 categories
 - `README.md` — updated pattern count, added Meta Patterns table, expanded credits with source descriptions
 - Communication Patterns table in README now includes all communication patterns
+
+---
+
+## [2.0.0] — 2026-03-18
+
+### Added
+- **Tiered vocabulary system** — words are now organized into three tiers based on AI-signal strength:
+  - Tier 1 (always flag): 53 entries — dead giveaways that appear 5–20x more often in AI text
+  - Tier 2 (flag in clusters): 38 entries — legitimate words that signal AI when 2+ appear in the same paragraph
+  - Tier 3 (flag by density): 11 entries — common words that only flag when the text is saturated with them
+- 39 new vocabulary entries across all tiers, including: bustling, intricate, complexities, ever-evolving, daunting, holistic, actionable, impactful, learnings, thought leadership, best practices, synergy, interplay, encompass, catalyze, reimagine, galvanize, augment, cultivate, illuminate, elucidate, juxtapose, paradigm-shifting, transformative, cornerstone, paramount, poised, burgeoning, nascent, quintessential, overarching, underpinning, significant, innovative, dynamic, scalable, compelling, unprecedented, sophisticated, instrumental, world-class
+- Credit to [brandonwise/humanizer](https://github.com/brandonwise/humanizer) for tiered vocabulary research
+
+### Changed
+- Word/phrase table reorganized from flat list to tiered structure with usage guidance
+- Total vocabulary: 58 → 102 entries (53 Tier 1 + 38 Tier 2 + 11 Tier 3)
+- `README.md` — updated replacement table description, pattern table, and credits
 
 ---
 
