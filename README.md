@@ -23,8 +23,8 @@ A one-shot "make this sound human" prompt catches the obvious stuff. This skill 
 
 - **Structured audit** — returns identified issues with quoted text, the rewrite, a change summary, and a second-pass audit in four discrete sections. You see exactly what changed and why.
 - **Two-pass detection** — the second pass re-reads the rewrite and catches patterns that survive the first edit: recycled transitions, lingering inflation, copula swaps that snuck through.
-- **43-entry replacement table** — not vibes-based. Every flagged word has a specific, plainer alternative. "Leverage" → "use." "Commence" → "start." No judgment calls.
-- **22 pattern categories** — see the full list below, each with before/after examples.
+- **102-entry word replacement table across 3 tiers** — not vibes-based. Every flagged word has a specific, plainer alternative. "Leverage" → "use." "Commence" → "start." Tier 1 words are always flagged, Tier 2 words flag when they cluster, Tier 3 words flag only at high density. This reduces false positives while catching real AI tells.
+- **23 pattern categories** — see the full list below, each with before/after examples.
 - **Claude Code native** — installs as a skill with YAML frontmatter, works with slash commands, integrates into your existing workflow.
 
 ## Installation & Usage
@@ -75,7 +75,7 @@ The skill returns four sections:
 3. **What changed** — summary of the major edits
 4. **Second-pass audit** — re-reads the rewrite and catches any surviving tells
 
-## 22 Patterns Detected
+## 23 Patterns Detected
 
 ### Content Patterns
 
@@ -92,7 +92,7 @@ The skill returns four sections:
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 7 | **Word/phrase replacements** | "leverage... robust... seamless... utilize" | "use... reliable... smooth... use" |
+| 7 | **Word/phrase replacements (3 tiers)** | "leverage... robust... seamless... utilize" | "use... reliable... smooth... use" |
 | 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
 | 9 | **Synonym cycling** | "developers... engineers... practitioners... builders" | "developers" (repeat the clear word) |
 | 10 | **Template phrases** | "a [adj] step towards [adj] infrastructure" | Describe the specific outcome |
@@ -103,7 +103,7 @@ The skill returns four sections:
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 13 | **Formatting** | Em dashes, bold overuse, emoji headers, bullet-heavy | Commas/periods, prose paragraphs |
+| 13 | **Formatting** | Em dashes (— and --), bold overuse, emoji headers, bullet-heavy | Commas/periods, prose paragraphs |
 | 14 | **Sentence structure** | "It's not X, it's Y" + hollow intensifiers + hedging | Direct positive statements |
 | 15 | **Structural issues** | Uniform paragraphs, formulaic openings, too-clean grammar | Varied length, lead with the point |
 | 16 | **Transition phrases** | "Moreover," "Furthermore," "In today's [X]" | "and," "also," or restructure |
@@ -115,9 +115,10 @@ The skill returns four sections:
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
 | 19 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
-| 20 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
-| 21 | **Generic conclusions** | "The future looks bright," "Only time will tell" | Specific closing thought or cut |
-| 22 | **Emotional flatline** | "What surprised me most," "I was fascinated to discover" | Earn the emotion or cut the claim |
+| 20 | **"Let's" constructions** | "Let's explore," "Let's break this down" | Just start with the point |
+| 21 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
+| 22 | **Generic conclusions** | "The future looks bright," "Only time will tell" | Specific closing thought or cut |
+| 23 | **Emotional flatline** | "What surprised me most," "I was fascinated to discover" | Earn the emotion or cut the claim |
 
 ## Full Example
 
@@ -154,6 +155,7 @@ That's 35+ AI tells.
 Pattern research informed by:
 - Wikipedia's [Signs of AI-generated text](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) documentation
 - [blader/humanizer](https://github.com/blader/humanizer) Claude Code skill
+- [brandonwise/humanizer](https://github.com/brandonwise/humanizer) — tiered vocabulary system and statistical analysis research
 
 ## License
 
