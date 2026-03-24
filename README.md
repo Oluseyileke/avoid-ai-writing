@@ -63,7 +63,7 @@ Then use `/clean-ai-writing <your text>` in Claude Code.
 
 ### OpenClaw
 
-**Option 1: Install from ClawHub**
+**Option 1: [Install from ClawHub](ttps://clawhub.ai/conorbronsdon/avoid-ai-writing)**
 
 ```bash
 clawhub install avoid-ai-writing
